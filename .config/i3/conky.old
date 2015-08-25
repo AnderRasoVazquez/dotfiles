@@ -1,0 +1,86 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+# Update interval in seconds
+update_interval 5.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address. 
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+
+# JSON for i3bar
+
+
+[
+#cmus
+{"full_text":"${exec /home/ander/scripts/cmus-track-info.sh}","color":"\#BDE077","separator":false,"separator_block_width":6},\
+#CPU
+{"full_text":"  ${cpu cpu0}%","color":"\#FEA63C","separator":false,"separator_block_width":6},\
+#Mem
+{"full_text":"  ${memperc}%","color":"\#FFE863","separator":false,"separator_block_width":6},\
+#weather
+#{"full_text":" ${exec /home/ander/scripts/weather-conky.py}","color":"\#A3BABF","separator":false,"separator_block_width":6},\
+#Ander Yaiza
+{"full_text":" ${exec /home/ander/scripts/mesiversario.sh}","color":"\#F00060","separator":false,"separator_block_width":6},\
+#Free space
+{"full_text":"  ${fs_free /}","color":"\#66AABB","separator":false,"separator_block_width":6},\
+#IP
+{"full_text":"  ${exec hostname -i | cut -d " " -f 1-2}","color":"\#BDE077","separator":false,"separator_block_width":6},\
+#Pacman
+{"full_text":" ${execi 200 checkupdates | wc -l}","color":"\#AACCBB","separator":false,"separator_block_width":6},\
+#AUR
+{"full_text":"  ${execi 200 yaourt -Qua | grep "aur" | wc -l}","color":"\#FFE863","separator":false,"separator_block_width":6},\
+#Kernel
+{"full_text":"  ${kernel}","color":"\#A3BABF","saeparator":false,"separator_block_width":6},\
+#Wifi
+#{"full_text":" ","color":"\#00FF00","separator":false,"separator_block_width":6},\
+#{"full_text":"[${upspeed wlp5s0}]","color":"\#FFFFFF","separator":false,"separator_block_width":6},\
+#{"full_text": ": [${upspeed wlp5s0}] ", "color":"\#00FF00", "separator": false, "separator_block_width":6},\
+#Finds current volume. May need modified depending on your setup
+#{"full_text":" ","color":"\#268BD2","separator":false,"separator_block_width":6},\
+#{"full_text":"${exec amixer sget Master | grep on | tail -1 | cut -d " " -f7} ","color":"\#FFFFFF","separator":false,"separator_block_width":6},\
+#{"full_text":"${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6} ","color":"\#FFFFFF","separator":false,"separator_block_width":6},\
+#{"full_text": ": ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6} ", "color":"\#268BD2"},
+#Brighness
+#{"full_text":" ","color":"\#F7FE2E","separator":false,"separator_block_width":6},\
+#{"full_text":"[${exec xbacklight| awk '{printf("%d\n",$1 + 0.5)}'}%] ","color":"\#FFFFFF","separator":false,"separator_block_width":6},\
+#{ "full_text": ": ${exec xbacklight| awk '{printf("%d\n",$1 + 0.5)}'}% ", "color":"\#F7FE2E"},
+{ "full_text": "  ${exec light | cut -d "." -f1}", "color":"\#FFE863","separator":false,"separator_block_width":6},
+#CPU
+#{"full_text":" ","color":"\#8D00FF","separator":false,"separator_block_width":6},\
+#{"full_text":"[$cpu%]","color":"\#FFFFFF","separator":false,"separator_block_width":6},\
+#{"full_text": " :[$cpu%] ", "color":"\#8D00FF", "separator": false, "separator_block_width":6},\
+#Battery 
+{"full_text":" ","color":"\#BDE077","separator":false,"separator_block_width":6},\
+{"full_text":"${battery_short BAT1} ${battery_time BAT1}","color":"\#FFFFFF","separator":false,"separator_block_width":6},\
+#{"full_text": ":[${battery_percent BAT1}%] ","color":"\#dedede"},
+#Calender/time
+{"full_text":"","color":"\#66AABB","separator":false,"separator_block_width":6},\
+{"full_text":"${time %a %d %b} ${time %H:%M:%S}","color":"\#FFFFFF","separator":false}
+],

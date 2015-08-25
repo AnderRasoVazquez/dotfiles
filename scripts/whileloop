@@ -1,0 +1,32 @@
+n=1
+while [ $n -le 10 ]
+do
+	echo "$n"
+	n=$(( $n + 1 ))
+done
+
+
+z=1
+while true ## : can be used in place of true
+do
+	read x
+	z=$(( $z + 1 ))
+	echo "$z"
+	if [[ $z -eq 4 ]]; then
+		echo "terminado"
+		break # sigue el script
+	fi
+done
+
+m=1
+while true ## : can be used in place of true
+do
+	read x
+	m=$(( $m + 1 ))
+	echo "$m"
+	if [[ $m -eq 4 ]]; then
+		echo "terminado"
+		exit 0 # termina el script
+	fi
+done
+

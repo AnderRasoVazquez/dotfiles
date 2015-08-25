@@ -1,0 +1,353 @@
+#!/bin/bash
+
+estan_archivos(){
+  if [[ -f ~/bin/det_funcs ]]; then
+    source ~/bin/det_funcs
+  else
+    echo "missing file: det_funcs"
+    exit 1
+  fi
+
+  # directorio donde guardar las cosas
+  if ! [ -d ~/det ]
+  then
+    mkdir -pv ~/det/{data,pacientes}
+  fi
+}
+
+status(){
+  echo -e "STATUS"
+  # mostrar variables de sesion
+  $conexion -column -header "SELECT * FROM var_sesion;"
+}
+
+
+##############  PROGRAMA  ##############
+
+estan_archivos # comprueba si estan los archivos necesarios
+esta_instalado # comprueba si esta preparada la base de datos y si no la instala
+existe_login=$($conexion "SELECT count(*) FROM usuario_actual;") # comprueba si se ha iniciado sesion
+existe_sesion=$($conexion "SELECT count(*) FROM var_sesion;") # comprueba si se ha iniciado sesion
+if [[ "$existe_login" = 0 ]] || [[ "$existe_sesion" = 0 ]]
+then #si no ha iniciado sesion
+  login          # hace login
+fi
+
+
+##############  ARGUMENTOS  ##############
+
+
+if [[ "$1" = "login" ]]; 
+  then
+  login
+fi
+
+if [[ "$1" = "dieta" ]]; 
+  then
+  dame_usuario_actual
+  $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+  #
+  # Mostrar dieta en la que estas, con un color por ejemplo, asignar a un echo y con sed cambiar color a la linea
+  #
+fi
+
+
+if [[ "$1" = "logout" ]]; 
+  then
+  $conexion "DELETE FROM var_sesion"
+  echo "Has cerrado sesion."
+fi
+
+
+
+if [[ "$1" = "checkout" ]]; 
+then
+  if [[ -n "$2" ]]; then
+    nombre_dieta=$2
+    existe_dieta=$($conexion "SELECT count(*) FROM nom_dietas WHERE dieta='$nombre_dieta'";)
+    if [[ "$existe_dieta" > 0 ]]; 
+    then
+    # si existe una variable de sesion llena update si esta vacia insert 
+      calorias_dieta_elegida=$($conexion "SELECT calorias FROM nom_dietas WHERE dieta='$2'";)
+      $conexion "UPDATE var_sesion SET sesion_dieta='$2', sesion_calorias='$calorias_dieta_elegida'"
+      echo -e "Ahora estás en la dieta - "${G}$nombre_dieta${W}
+      #$conexion -column -header "SELECT * FROM var_sesion;"
+      #$conexion  "INSERT INTO var_sesion (sesion_dieta) values ('$nombre_dieta')"
+    else
+      echo -e "${Y}Atención:${W} el nombre de la dieta no existe, elige otro nombre."
+      dame_usuario_actual
+      $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+    fi
+  else
+    dame_usuario_actual
+    $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual' ORDER BY paciente DESC"
+  fi
+fi
+
+
+
+
+if [[ "$1" = "menu" ]]; 
+  then
+  menu_principal
+fi
+
+if [[ "$1" = "status" ]]; 
+  then
+  status
+fi
+
+if [[ "$1" = "user" ]]; 
+  then
+  dame_usuario_actual
+  echo "Usuario actual : "$usuario_actual
+fi
+
+if [[ "$1" = "metabolismo" ]]; 
+  then
+  clear
+  
+  # Calcular metabolismo basal
+  if [[ -n "$2" ]]; then
+    masa_muscular=$2
+  else
+    read -p " Masa muscular (kg) : " masa_muscular
+  fi
+  metabolismoBasal=$( echo "scale=2; 370+(21.6*$masa_muscular)" | bc -l )
+  
+  # Calcular metabolismo total
+  if [[ -n "$3" ]]; then
+    nivel_actividad=$3
+  else
+    read -p " Nivel de actividad : " nivel_actividad
+  fi
+  metabolismoTotal=$( echo "scale=2; $metabolismoBasal*$nivel_actividad" | bc -l )
+
+  #Mostrar resultados
+  clear
+  echo -e "┌METABOLISMO [$masa_muscular kg] [$nivel_actividad actividad]"
+  echo -e "├─Metabolismo basal → "$metabolismoBasal" kcal"
+  echo -e "└─Metabolismo total → "$metabolismoTotal" kcal"
+  exit 0
+fi
+
+while getopts ":ablmxjvsdhunr" flag; do
+  case "$flag" in
+    # añadir
+    a) 
+      #
+      #else if no se pone elif
+      #export PS1 para añadir la dieta 
+      #read -e -p "Glassfish Path:" GF_DIR
+      #-e enables readline:
+      #-e 
+      #If the standard input is coming from a terminal, Readline is used
+      #to obtain the line.
+      #det -l -a food hora
+      #det -l -r {menu con opciones borrar la 1,2,3,4-7}
+      #det -l -r food hora
+      #det -l -r -i hora
+      #det -l -c food hora hora
+      #det -l -c {salen todas las opciones}
+      #det -l -c -i hora 
+      #det 
+      echo $dia
+      if [[ $1 = "-la" ]]; then
+        echo "es igual"
+        else
+        echo "no es igual"
+      fi
+      ;;
+    # body
+    b) 
+      echo "body"
+      ;;
+    # Dias de la semana
+    l)
+      dia="lunes"; echo $dia
+      ;;
+    m) 
+      dia="martes"; echo $dia
+      ;;
+    x) 
+      dia="miercoles"; echo $dia
+      ;;
+    j) 
+      dia="jueves"; echo $dia
+      ;;
+    v) 
+      dia="viernes"; echo $dia
+      ;;
+    s) 
+      dia="sabado"; echo $dia
+      ;;
+    d) 
+      dia="domingo"; echo $dia
+      ;;
+
+    # Update
+    u) 
+      #crear dieta
+      if [[ "$2" = "dieta" ]]; 
+        then
+        echo "UPDATE (ACTUALIZAR) DIETA"
+        dame_usuario_actual # $usuario_actual
+        if [[ -n "$3" ]]; then
+          nombre_dieta=$3
+        else
+          read -p "Nombre de dieta : " nombre_dieta
+        fi
+        
+        while true 
+        do
+          existe_dieta=$($conexion "SELECT count(*) FROM nom_dietas WHERE dieta='$nombre_dieta'";)
+          if [[ "$existe_dieta" = 0 ]]; 
+            then
+            echo -e "${Y}Atención:${W} el nombre de la dieta no existe, elige otro nombre."
+            read -p "Nombre de dieta : " nombre_dieta
+            continue
+          fi
+          break
+        done
+        
+
+        if [[ -n "$4" ]]; then
+          calorias=$4
+        else
+          read -p "Calorías (sólo número) : " calorias
+        fi
+        $conexion "UPDATE nom_dietas SET calorias='$calorias' where usuario='$usuario_actual' and dieta='$nombre_dieta';"
+        $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+      fi
+      ;;
+    # Nuevo
+    n) 
+      #crear usuario
+      if [[ "$2" = "user" ]]; 
+        then
+        crear_usuario
+      fi
+      #crear dieta
+      if [[ "$2" = "dieta" ]]; 
+        then
+        echo "CREAR DIETA"
+        dame_usuario_actual # $usuario_actual
+        if [[ -n "$3" ]]; then
+          nombre_dieta=$3
+        else
+          read -p "Nombre de dieta : " nombre_dieta
+        fi
+        
+        while true 
+        do
+          existe_dieta=$($conexion "SELECT count(*) FROM nom_dietas WHERE dieta='$nombre_dieta'";)
+          if [[ "$existe_dieta" > 0 ]]; 
+            then
+            echo -e "${Y}Atención:${W} el nombre de la dieta ya existe, elige otro nombre."
+            read -p "Nombre de dieta : " nombre_dieta
+            continue
+          fi
+          break
+        done
+        
+
+        if [[ -n "$4" ]]; then
+          calorias=$4
+        else
+          read -p "Calorías (sólo número) : " calorias
+        fi
+
+        read -e -p "Quieres asignar la dieta a un paciente? (y/n) : " confirm
+        case "$confirm" in
+        # body
+        y|Y) 
+          read -p "Nombre del paciente : " nombre_paciente
+          $conexion  "INSERT INTO nom_dietas values ('$usuario_actual','$nombre_dieta','$calorias','$nombre_paciente')"
+          $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+          ;;
+        n|N) 
+          $conexion  "INSERT INTO nom_dietas values ('$usuario_actual','$nombre_dieta','$calorias',NULL)"
+          $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+          ;;
+        *)
+          echo "Opción no valida : $confirm"
+          ;;
+        esac
+
+        det checkout $nombre_dieta
+        # usuario varchar(40),
+        # dieta varchar(100),
+        # calorias int,
+        # nombre_paciente varchar(40),
+        # apellido_paciente varchar(40),
+        # correo_paciente varchar(40),
+        # tlf_paciente int,
+      fi
+
+      # DEberia hacer esto con else if esta parte seria el else finals
+      #echo -e "${Y}Atención:${W} argumento no válido."
+      ;;
+    # REMOVE
+    r) 
+      if [[ "$2" = "dieta" ]]; 
+      then
+        dame_usuario_actual # $usuario_actual
+        if [[ -n "$3" ]]; then
+          nombre_dieta=$3
+        else
+          $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+          read -p "Nombre de dieta a eliminar : " nombre_dieta
+        fi
+
+        while true
+        do
+          existe_dieta=$($conexion "SELECT count(*) FROM nom_dietas WHERE dieta='$nombre_dieta'";)
+          if [[ "$existe_dieta" > 0 ]]; 
+          then
+            read -e -p "Eliminar dieta - "$nombre_dieta"? (y/n) : " confirm
+            case "$confirm" in
+            # body
+            y|Y) 
+              $conexion "DELETE FROM nom_dietas where dieta='$nombre_dieta'"
+              $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+              #eliminamos variables de sesion
+              $conexion "UPDATE var_sesion SET sesion_dieta=NULL, sesion_calorias=NULL"
+              echo "Dieta -" $nombre_dieta "- eliminada"
+
+              ;;
+            n|N) 
+              echo "No eliminar"
+              ;;
+            *)
+              echo "Opción no valida : $confirm"
+              ;;
+            esac
+        # Salimos del loop
+            break
+          else
+            echo -e "${Y}Atención:${W} el nombre de la dieta no existe, elige otro nombre."
+            $conexion -column -header "SELECT * FROM nom_dietas where usuario='$usuario_actual'"
+            read -p "Nombre de dieta a eliminar : " nombre_dieta
+        # Repetimos loop
+            continue
+          fi
+        done
+      fi
+      ;;
+    # Help
+    h) 
+      help="Ayuda"; echo $help
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG"
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument."
+      exit 1
+      ;;
+  esac
+done
+
+echo "terminado"
+exit 0

@@ -1,0 +1,56 @@
+!Xcursor.theme: Protozoa-Blu
+
+!*customization: -color
+xterm*termName:  xterm-256color
+xterm*faceName: Dejavu Sans Mono for Powerline
+xterm*faceSize: 11
+
+!xterm*metaSendsEscape: true
+xterm*utf8: 1
+
+!-- Xft settings -- !
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+
+!urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0200/c800
+!URxvt.font: xft:Dejavu Sans Mono for Powerline:size=9
+URxvt.font: xft:Terminess Powerline:size=11
+/* URxvt.font: xft:Droid Sans Mono for Powerline:size=9 */
+URxvt.scrollBar: false
+URxvt.transparent:   true
+URxvt.shading:       20
+!URxvt.buffered: false
+
+
+!*foreground: #DDEEDD
+*foreground: #DDEEDD
+*background: #262626
+
+!black
+*color0: #1C1C1C
+*color8: #4d4d4d
+!red
+*color1: #D81860
+*color9: #F00060
+!green
+*color2: #B7CE42
+*color10: #BDE077
+!yellow
+*color3: #FEA63C
+*color11: #FFE863
+!blue
+*color4: #66AABB
+*color12: #AACCBB
+!magenta
+*color5: #B7416E
+*color13: #BB4466
+!cyan
+*color6: #5E7175
+*color14: #A3BABF
+!white
+*color7: #DDEEDD
+*color15: #6C887A

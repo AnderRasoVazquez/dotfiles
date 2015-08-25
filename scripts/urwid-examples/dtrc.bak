@@ -1,0 +1,43 @@
+# {{{ CONFIG
+debug_mode=false
+#where is data on the usr table
+#required files
+config_dir="/home/${USER}/.config/dt"
+db="/home/${USER}/.config/dt/db.csv"
+diets="/home/${USER}/.config/dt/diets.csv"
+pacients="/home/${USER}/.config/dt/pacients.csv"
+
+usr_pacient="Ander Raso"
+usr_diet="Dieta de prueba"
+usr_day="lunes"
+usr_hour="08:00"
+
+#quit option on select menus
+quit_string="salir"
+
+week_days=( lunes martes miercoles jueves viernes sabado domingo ${quit_string} )
+
+# TODO id mirar cual es el mas grande y sumarle uno y si no hay ponerle el 1
+usr_id_col=1
+usr_pacient_col=2
+usr_diet_col=3
+usr_dia_col=4
+usr_hour_col=5
+usr_food_col=6
+usr_gr_col=7
+usr_cal_col=8
+usr_ch_col=9
+usr_pt_col=10
+usr_lp_col=11
+
+#where is data on the db columns
+db_id_col=1
+db_food_col=2
+db_cal_col=3
+db_ch_col=4
+db_pt_col=5
+db_lp_col=6
+
+#others
+delimiter="|"
+# }}} CONFIG

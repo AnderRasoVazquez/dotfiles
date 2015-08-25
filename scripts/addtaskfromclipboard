@@ -1,0 +1,47 @@
+#!/bin/bash
+
+## Configuration ####################################
+todofile=~/Documentos/Syncthing/todotxt/todo.txt
+grabclipboard=true #grab task name from clipboard (true|false)
+#####################################################
+
+defaultopt="None!"
+lists=$(cat "$todofile"| grep -o "[^ ]*@[^ ]*" | sort -u | tr "\\n" "\!" | sed 's/.$//')
+dropdown="$defaultopt""$lists"
+
+[[ "$grabclipboard" = true ]] && taskplaceholder=$(xclip -selection clipboard -o) || taskplaceholder=""
+
+adddate=$(date +%F)
+
+form=$(yad --width=400 --title="Add new task" --text="Write task details:" \
+--form \
+--field="Priority":CB \
+--field="Task" \
+--field="List":CBE \
+--field="Due date":DT \
+--field="Threshold date":DT \
+"None!A!B!C!D!E" "$taskplaceholder" "$dropdown" "" "")
+
+echo $form
+
+taskpri=$(echo "$form" | cut -d "|" -f1)
+taskinfo=$(echo "$form" | cut -d "|" -f2)
+tasklist=$(echo "$form" | cut -d "|" -f3)
+taskdue=$(echo "$form" | cut -d "|" -f4 | sed "s/\//\-/g")
+taskhold=$(echo "$form" | cut -d "|" -f5 | sed "s/\//\-/g")
+
+if [[ -z "$taskinfo" ]]; then
+    mplayer /usr/share/sounds/gnome/default/alerts/drip.ogg
+    exit 1
+fi
+
+[[ "$taskpri" != "None" ]] && newtask="${adddate} (${taskpri}) ${taskinfo}" || newtask="${adddate} ${taskinfo}"
+[[ "$tasklist" != "None" ]] && newtask="${newtask} ${tasklist}"
+[[ -n $taskdue ]] && newtask="${newtask} due:${taskdue}"
+[[ -n $taskhold ]] && newtask="${newtask} t:${taskhold}"
+
+echo $newtask
+
+echo $newtask >> $todofile
+
+exit 0

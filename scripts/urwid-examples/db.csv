@@ -1,0 +1,734 @@
+id|alimento|calorias|carbohidratos|proteinas|lipidos
+1|maiz en mazorca crudo|346|64.66|8.57|3.8
+2|maiz en mazorca hervido|120|21|3.4|1.5
+3|cereales de desayuno con base de maiz|376|83|8|0.8
+4|cereales de desayuno con base de maiz azucarados|374|87|4.5|0.6
+5|cereales de desayuno con base de maiz, avena y trigo, dorados con miel|395|85|6|2.96
+6|cereales de desayuno con base de trigo y miel|387|84|7|1.68
+7|pan integral|221|38|7.02|2.9
+8|pan integral tostado|265|44.5|10.8|2.9
+9|pan de molde|272|49.9|7.77|3.8
+10|pan de molde integral|259|44|10.9|3
+11|pan tipo hamburguesa|271|47.5|7.54|4.7
+12|medias noches|283|52.34|6.49|4.66
+13|pan de centeno|230|45.8|6.21|1
+14|pasta|359|70.9|12.78|1.58
+15|pasta al huevo|374|69.9|12.35|4.2
+16|bollo de leche|364|47|10|14.6
+17|pasta de colores|353|70.6|13.14|1.04
+18|pasta rellena de carne hervida|104|12.7|4.7|3.4
+19|pasta rellena de queso hervida|151|16.3|9.5|5.1
+20|galleta tipo maria|482|69|7.08|19
+21|galleta integral|427|42.9|10|21.2
+22|galleta doble rellena de chocolate|487|60.4|6.9|23.5
+23|galleta cubierta de chocolate|491|60.4|6.92|24
+24|galleta tipo cookie|478|64.3|6.2|21
+25|galleta tipo digestive|469|62.98|6.3|20.3
+26|galleta tipo digestive con chocolate|497|61.68|6.8|24.1
+27|bizcocho|467|50.7|6.05|26.3
+28|bizcocho de chocolate|459|47.16|7.4|26.4
+29|bollo|443|50.8|6.6|23
+30|bollo relleno de chocolate|416|47.3|9|20.7
+31|churro|361|40|4.6|20
+32|croisant|444|52.6|6.96|22.4
+33|croisant de chocolate|362|49.3|5.6|15.2
+34|bollo tipo donette|457|46|6.17|27.16
+35|bollo tipo donut|400|42|6.1|22.4
+36|bollo tipo donut de chocolate|483|43.51|5|31.69
+37|ensaimada|444|46.52|7.5|25
+38|magdalena|353|49.3|7.8|13.2
+39|palmera|539|61|5|30
+40|suizo|404|40.5|9.9|21.9
+41|sobao|440|56.3|8.8|19.1
+42|valenciana|441|55.85|5.12|20.94
+43|agua corriente|0|0|0|0
+44|agua con gas, embotellada|0|0|0|0
+45|agua sin gas, embotellada|0|0|0|0
+46|agua de mineralizacion debil|0|0|0|0
+47|refresco sabor cola|43.4|10.85|0|0
+48|refresco sabor cola bajo en calorias|0.4|0.1|0|0
+49|refresco sabor cola sin cafeina|43|10.75|0|0
+50|refresco sabor cola sin cafeina bajo en calorias|0.8|0.1|0.1|0
+51|refresco sabor limon|45.6|11.4|0|0
+52|refresco sabor naranja|42|10.5|0|0
+53|refresco aroma lima0 limon|58.4|14.6|0|0
+54|gaseosa|21.6|5.4|0|0
+55|tonica|36.8|9.2|0|0
+56|soda sifon|35.2|8.8|0|0
+57|cafe en grano|315|6.7|13.5|13.1
+58|cafe en polvo soluble|227|41.1|14.6|0.5
+59|cafe descafeinado en polvo soluble|228|42.6|13.9|0.22
+60|sucedaneo de cafe soluble|404|80.9|12.3|3.4
+61|achicoria|19.7|2.44|0.5|0.6
+62|te|220|3|19.6|2
+63|bebida isotonica|28.4|7.1|0|0
+64|zumo comercial de naranja|43.28|9.4|0.63|0.2
+65|zumo de manzana|48.46|11.85|0.06|0.11
+66|zumo de melocoton|47.1|10.5|0.63|0.22
+67|zumo de piña|41.4|9.71|0.38|0.08
+68|zumo de pomelo|43.62|10.1|0.53|0.1
+69|zumo de tomate comercial|14.02|2.6|0.63|0.06
+70|zumo de uva|68.14|16.6|0.21|0.1
+71|zumo de zanahoria|24.2|4.8|0.63|0.1
+72|zumo uva y melocoton|52.7|12|0.6|0.23
+73|horchata|97.3|17|1.2|2.7
+74|aguardiente|222|0|0|0
+75|anis|267|1|0|0
+76|coñac|240|1.98|0|0
+77|ginebra|221|0|0|0
+78|ron|234|0|0|0
+79|tequila|266|0|0|0
+80|vodka|235|0|0|0
+81|whisky|247|0.11|0|0
+82|licor dulce|224|35|0.1|0
+83|cava|70.5|1.5|0.2|0
+84|champagne|67.62|1.5|0.18|0
+85|sidra|49.9|6|0|0
+86|cerveza|42.4|3.12|0.5|0
+87|cerveza baja en alcohol|38.1|2.9|0.5|0
+88|cerveza sin alcohol|25.39|5.4|0.38|0
+89|bitter con alcohol|152|16|0|0
+90|vermut|145|13.5|0.1|0
+91|vino blanco|61|0.1|0.1|0
+92|vino tinto|70.72|0.3|0.23|0
+93|vino rosado|66.9|1.4|0.1|0
+94|vino dulce (malaga, oporto)|161|13|0.2|0
+95|vino fino (jerez, manzanilla)|127|10|0.2|0
+96|albondigas en conserva|152|6.8|6.8|9.72
+97|arroz tres delicias congelado|125|22.58|3.4|1.55
+98|calamares a la romana congelados|120|6.4|5.68|7.83
+99|caldo en cubitos|252|5|15.7|18.7
+100|callos a la madrileña (lata)|107|1.92|6.79|5.82
+101|canelones de carne congelados|132|13.49|6.21|5.4
+102|carne empanada, pasteles de carne (congelados)|299|12.01|21.91|18.11
+103|crema desecada de esparragos|426|62.26|8|15.52
+104|crema desecada de champiñon|361|61.86|9.63|7.66
+105|croqueta de bacalao congelada|148|23.5|3.77|4.24
+106|croqueta de marisco congelada|141|23.3|5.6|2.7
+107|croqueta de queso congelada|144|23.9|4.3|3.3
+108|croqueta de jamon congelada|149|22.23|3.76|4.56
+109|croqueta de merluza congelada|139|22.32|3.46|3.76
+110|croquetas de pollo congeladas|158|20.43|5.78|5.32
+111|delicias de jamon y queso congeladas|221|28.3|5.12|9.1
+112|barrita de cereales con pepitas de chocolate|394|73|9|7
+113|pescado empanado, pasteles de pescado (congelados)|183|15.8|12.6|7.52
+114|empanadilla de atun congelada|257|29.74|4.76|12.03
+115|espinacas a la crema congeladas|131|5.5|2.8|10.5
+116|fabada en conserva|173|13.42|6.06|8.82
+117|lasaña de carne y besamel congelada|139|10.3|6.3|7.9
+118|masa de hojaldre congelada|556|44.2|7.4|38.5
+119|paella de marisco congelada|124|25.13|3.55|0.62
+120|pisto de verduras congelado|56.6|8.75|2.86|0.15
+121|patatas prefritas congeladas|276|32.79|4.1|13.5
+122|pizza de atun congelada|193|16.5|7.95|9.77
+123|pizza margarita congelada|195|22.2|8.2|7.79
+124|pizza romana congelada|177|26.5|7.29|3.78
+125|pollo empanado congelado|242|13.52|18|12.7
+126|raviolis con salsa de tomate congelados|122|17.3|4.7|3.4
+127|rollito de primavera congelado|146|5.8|5.8|10.5
+128|san jacobo congelado|246|25.16|4.14|13.34
+129|gazpacho en conserva|34.4|1.6|0.6|2.8
+130|pure de patatas para reconstituir|353|75.3|8.2|0.8
+131|sopa de ave con fideos para reconstituir|320|58.24|10.99|4.34
+132|sopa jardinera para reconstituir|352|61.88|11.18|5.49
+133|aceituna negra con hueso|299|4|2|29.8
+134|aceituna verde con hueso|167|1|0.8|16.7
+135|alcaparra|28.6|2.1|2.36|0.86
+136|galleta salada|411|69.2|9.4|10
+137|patatas fritas de bolsa|517|47.45|6.5|32.7
+138|patatas fritas de bolsa bajas en calorias|462|57.36|6.6|21.5
+139|gusanitos con queso|486|61.56|5.21|21.88
+140|triangulos maiz|503|56.3|6.5|27.7
+141|fritos de maiz|576|51|6.6|37.31
+142|palomitas de maiz|494|44.27|6.2|30.2
+143|corteza de trigo|495|52.19|10.26|25.8
+144|ganchitos|487|50.9|9.14|26.2
+145|nachos con queso|338|35.12|8.05|18.1
+146|pepinillos en vinagre en conserva|17.7|2.6|1.04|0.1
+147|aceituna negra sin hueso|299|4|2|29.8
+148|aceituna verde sin hueso|167|1|0.8|16.7
+149|perejil|59.1|7.4|4.43|0.36
+150|barrita de cereales con frutas rojas|392|78|8|5
+151|pimenton|357|34.84|14.8|12.95
+152|pimienta blanca|283|42.41|10.4|2.1
+153|pimienta negra|280|38.31|10.9|3.3
+154|sal comun|0|0|0|0
+155|vinagre|4|0.6|0.4|0
+156|guindilla picante|47.2|6.7|1.87|1.1
+157|oregano seco|308|21.63|11|10.25
+158|azafran|352|61.5|11.43|5.85
+159|nuez moscada|506|28.5|5.84|36.31
+160|menta fresca|67|6.89|3.75|0.94
+161|laurel|353|48.67|7.61|8.36
+162|vainilla|51.4|12.65|0.06|0.06
+163|canela|255|25.55|3.89|3.19
+164|alioli|796|2.8|0.5|86.9
+165|gelatina|338|0|84.4|0
+166|ketchup|117|26|2|0.4
+167|mayonesa comercial|709|5.8|1.3|75.6
+168|mayonesa ligera|300|10.8|1|28.1
+169|mostaza|125|5|7.1|8.2
+170|salsa agridulce|121|23.99|0.48|2.38
+171|salsa barbacoa|71|11.6|1.8|1.8
+172|salsa al curry|78.2|6.79|1.5|5
+173|salsa de queso|111|8.4|5.3|6.1
+174|salsa bechamel|153|10.8|4.1|10.3
+175|salsa boloñesa|148|3.4|8|11.1
+176|salsa carbonara|307|2|7.5|29.9
+177|salsa de soja|65.7|6.7|8.7|0.1
+178|salsa holandesa|289|0.6|2.7|30.6
+179|salsa roquefort|486|7.4|7.2|47.5
+180|salsa vinagreta|648|0.2|0.2|71.8
+181|sofrito|215|4.7|1.1|21
+182|batido hipocalorico|351|44.3|26.9|4.6
+183|barrita hipocalorica|473|42|22|22.9
+184|crema hipocalorica|330|47|23|3.8
+185|leche de inicio (polvo)|516|57.2|11.4|26.8
+186|leche de continuacion (polvo)|500|57.3|12.9|24.3
+187|papilla de cereales con leche (polvo)|419|68|15.5|9
+188|papilla sin gluten con leche (polvo)|423|70.6|15.3|8.3
+189|papilla de cereales y miel con leche (polvo)|421|72.4|13|8.8
+190|papilla de cereales y frutas (polvo)|379|85.8|6|1.3
+191|papilla sin gluten y frutas con leche (polvo)|422|70.8|15.2|8.7
+192|papilla de cereales, frutas y yogur con leche (polvo)|418|71|12.6|9.3
+193|potito de fruta variada|114|27|0.6|0.1
+194|potito de pescado|74.6|6|3.6|3.8
+195|potito de pollo|78.5|5.8|5.2|3.7
+196|potito de ternera|64.8|6|3.6|2.6
+197|barrita de cereales con melocoton y albaricoque|403|77|7|7
+198|levadura|164|11.8|27.8|0
+199|garbanzo|341|44.3|20.8|5.5
+200|guisante seco|302.4|41.2|22.9|1.44
+201|haba seca|307|33.3|26.1|2.1
+202|judia blanca|284|34.7|21.1|1.6
+203|judia pinta|292|35.11|23.58|0.83
+204|lenteja|304|40.6|23.18|1.7
+205|soja|373|6.29|34.74|18.3
+206|garbanzo en conserva|120|14.12|7.2|2.9
+207|judia blanca en conserva|101|15.7|6.7|0.3
+208|lenteja en conserva|109|14.85|8.8|0.7
+209|judia pinta en conserva|115|17.7|8.4|0.2
+210|brote de soja|54.9|4.68|5.53|1.03
+211|harina de soja|421|13|37.3|20.6
+212|batido fermentado de soja|82.4|3.9|5|5.2
+213|leche de soja|55|5.76|3.2|1.84
+214|tofu|89.1|3.3|8.08|4.78
+215|acelga|29.7|4.5|1.88|0.2
+216|ajo|119|24.3|4.3|0.23
+217|alcachofa|43.88|2.9|2.37|0.12
+218|apio|19.2|2.47|1.19|0.2
+219|berenjena|21.02|2.39|1.25|0.18
+220|berro|20.2|2.03|1.6|0.3
+221|boniato|115|24.11|1.63|0.6
+222|brecol|33|2.66|3.56|0.2
+223|calabacin|23.2|2|1.88|0.5
+224|calabaza|28.37|4.59|1.13|0.13
+225|cardo|16.9|2.2|0.8|0.1
+226|cebolla|31.85|5.3|1.19|0.25
+227|col rizada|43.7|2.54|4.3|0.9
+228|col de bruselas|42.66|3.29|4.44|0.34
+229|coliflor|27.52|2.39|2.44|0.28
+230|endivia|23.7|3.6|1.13|0.24
+231|escarola|17.4|1|1.6|0.2
+232|esparrago verde|20.84|2.04|2.25|0.16
+233|espinaca|20.74|0.61|2.63|0.3
+234|grelo|20.8|0.1|2.7|0.2
+235|guisante verde|90.7|11.3|6.88|0.9
+236|judia verde|36.42|4.2|2.38|0.58
+237|lechuga|19.6|1.4|1.37|0.6
+238|lombarda|26.8|3.54|1.5|0.18
+239|pepino|13.28|1.9|0.63|0.2
+240|pimiento rojo|32.9|4.2|1.25|0.9
+241|pimiento verde|19.68|1.6|0.63|0.8
+242|puerro|29|3.26|2.19|0.29
+243|bebida tipo danao|49|12|0.7|0.1
+244|repollo|32|4.1|1.7|0.45
+245|tomate|22.17|3.5|0.88|0.21
+246|haba fresca|50.4|4.2|5.4|0.2
+247|alga agar cruda|28.8|6.35|0.54|0.03
+248|alga musgo de irlanda cruda|54.1|11|1.51|0.16
+249|alga kelp cruda|47.4|8.27|1.68|0.56
+250|alga laver cruda|45.6|4.81|5.81|0.28
+251|alga spirulina cruda|37.2|2.42|5.99|0.39
+252|alga wakame cruda|53.5|8.65|3.03|0.64
+253|alga agar desecada|336|73.18|6.21|0.3
+254|alga espirulina desecada|391|20.3|58.17|7.72
+255|alcachofa congelada|37.8|3.9|2.63|0.43
+256|espinaca congelada|32.6|1.23|3.13|1
+257|guisante congelado|74|9.51|6|0.4
+258|judia verde congelada|36.4|3.6|1.88|0.9
+259|menestra congelada|63.7|9.46|3.3|0.52
+260|acelga en conserva|19.7|2.3|1.8|0.08
+261|alcachofa en conserva|36.6|1.2|2.9|0.16
+262|apio en conserva|11.9|0.8|0.5|0.3
+263|cardo en conserva|17|2.4|0.76|0.11
+264|esparrago de lata|18.79|1.5|1.88|0.31
+265|espinaca en conserva|20.68|0.52|3.12|0.4
+266|guisante en conserva|88.9|12.4|5.3|0.9
+267|judia verde en conserva|15.1|1.63|1.19|0.1
+268|palmito en conserva|43.2|8|2.8|0
+269|pimiento morron en conserva|32.2|5.2|1.19|0.4
+270|puerro en conserva|31.7|3.8|1.2|0.7
+271|tomate pelado enlatado|18.23|2.6|1.19|0.19
+272|tomate frito en conserva|87.6|5.2|1.5|6.4
+273|tomate triturado|38.1|5.55|2.3|0.5
+274|menestra en conserva|48.2|8.5|2|0.32
+275|zumo de tomate natural|16.69|2.96|0.76|0.05
+276|zumo de zanahoria natural|23.91|4.75|0.63|0.15
+277|nabo|31.6|4.66|1|0.22
+278|patata nueva|73.59|14.8|2.34|0.11
+279|rabano|17.26|2.13|1.06|0.14
+280|remolacha|46.1|8.38|1.56|0.1
+281|zanahoria|39.4|6.9|1.25|0.2
+282|tapioca|345|84.9|0.58|0.2
+283|zanahoria en conserva|26.8|4.2|0.8|0.2
+284|remolacha en conserva|43.9|7.6|2.3|0.1
+285|champiñon|33.56|0.54|4.25|1.2
+286|niscalo|23.8|0.2|1.6|0.8
+287|champiñon en conserva|21.38|0.07|3.38|0.5
+288|aguacate|233|0.4|1.88|23.5
+289|albaricoque|41.38|8.54|0.88|0.1
+290|caqui|74.22|16|0.63|0.3
+291|arandano|41.68|6.05|0.63|0.6
+292|cereza|62.11|13.3|0.88|0.31
+293|chirimoya|72.5|14.1|1.25|0.7
+294|coco fresco|384|4.78|4.63|36.5
+295|ciruela|48.1|10.2|0.63|0.17
+296|frambuesa|36.9|4.87|1.31|0.3
+297|fresa y freson|32.24|5.51|0.81|0.4
+298|granada|77.16|16.1|0.69|0.6
+299|grosella negra|45.18|6.11|1.31|0.22
+300|guayaba|41.58|5.82|0.88|0.5
+301|higo|65.4|12.9|1.31|0.5
+302|kiwi|51.8|9.12|1|0.8
+303|lima|17|1.9|0.5|0.2
+304|limon|27.66|3.16|0.69|0.3
+305|litchi|76.7|16.8|0.9|0.3
+306|mandarina|44.7|9.2|0.63|0.2
+307|mango|61.13|12.8|0.63|0.45
+308|manzana|54.08|11.4|0.31|0.36
+309|maracuya|54|9.54|2.38|0.4
+310|melocoton|50.8|10.3|1|0.2
+311|melon|55.44|12.4|0.88|0.1
+312|membrillo|47.26|7.32|0.44|0.5
+313|mora|45|6.24|1.19|1
+314|naranja|45.48|8.9|0.87|0.2
+315|nectarina|49.7|10.2|0.9|0.1
+316|nispero|42.6|8.58|0.56|0.2
+317|papaya|35.01|7.1|0.5|0.09
+318|pera|49.42|10.6|0.43|0.1
+319|piña|50.76|10.4|0.44|0.4
+320|platano|95.03|20.8|1.06|0.27
+321|pomelo|36.63|7.41|0.63|0.15
+322|sandia|28.4|5.6|0.63|0.3
+323|uva blanca|70.3|16.1|0.72|0.16
+324|uva negra|67.1|15.5|0.72|0.16
+325|grosella roja|32.4|4.78|1.13|0.2
+326|ciruela seca|218.68|42.4|2.18|0.52
+327|higo seco|272.3|55.1|3.61|1.3
+328|melocoton seco (orejones)|257.24|53.2|3|0.76
+329|datil|289.45|65.1|1.88|0.45
+330|pasa|309|69.3|2.46|0.5
+331|coco rallado|633|6.4|5.6|62
+332|albaricoque seco (orejones)|283|62.64|3.39|0.51
+333|almendra sin cascara|610|5.36|18.71|54.1
+334|almendra frita salada sin cascara|621|4.5|19|55.17
+335|almendra tostada sin cascara|621|6.6|22.9|52.93
+336|anacardo|577.6|30.5|17.5|42.2
+337|avellana sin cascara|661|10.5|12.01|61.6
+338|cacahuete sin cascara|563|7.91|25.23|46
+339|cacahuete frito salado sin cascara|627|8.9|24.5|53
+340|cacahuete tostado y salado sin cascara|613|13.51|23.89|49.66
+341|castaña|190|36.5|2.65|2.2
+342|castaña asada|237|39.7|4|5.3
+343|nuez sin cascara|649|4.4|14.42|62.5
+344|piñon sin cascara|706|3.9|14|68.6
+345|pipa de girasol sin sal|569|12.3|19.8|47.5
+346|pipa de girasol pelada con sal|640|9.1|17.25|56.8
+347|pipa de girasol pelada sin sal|640|9.14|17.25|56.8
+348|pistacho|603|11.6|17.65|51.6
+349|pistacho tostado salado|614|12.6|18|52.7
+350|mermelada de fresa|255.04|62.6|0.31|0.2
+351|mermelada de fresa baja en calorias|33|6.4|0.7|0
+352|mermelada de albaricoque y melocoton|258.28|63.2|0.32|0.2
+353|mermelada de albaricoque y melocoton baja en calorias|34.8|6.6|0.7|0
+354|mermelada de ciruela|250.51|59.6|0.31|0.63
+355|mermelada de frambuesa|250.5|60.9|0.45|0.3
+356|mermelada de naranja|256.28|63.6|0.38|0
+357|dulce de membrillo y pastas de frutas|259.2|62.2|1|0
+358|macedonia de frutas en almibar|68.6|15.8|0.62|0.1
+359|macedonia de frutas en su jugo|53.5|12.1|0.7|0.03
+360|melocoton en almibar|58.59|14.2|0.38|0.03
+361|pera en almibar|69.3|16.1|0.25|0.1
+362|piña en almibar|65.71|15.4|0.38|0.11
+363|piña en su jugo|42.89|9.71|0.4|0.1
+364|crema de almendra|377|59.7|4.6|13.2
+365|crema de cacahuete|609|11.2|30.09|47.8
+366|zumo de naranja|43.56|9.4|0.69|0.2
+367|leche de vaca entera|65.4|4.7|3.06|3.8
+368|leche de vaca semidesnatada|47.6|4.8|3.5|1.6
+369|leche de vaca desnatada|37|4.9|3.89|0.2
+370|leche en polvo entera|477|35.1|25.21|26.2
+371|leche en polvo semidesnatada|442|43.9|29.8|16.3
+372|leche en polvo desnatada|351.76|50.38|36.1|0.64
+373|leche evaporada entera|151|8.09|8.4|9.4
+374|leche concentrada|131.6|9.32|6.5|7.57
+375|leche condensada azucarada|336|52.84|8.51|10.1
+376|leche condensada desnatada con azucar|282|60|10|0.2
+377|leche de cabra|66.7|4.2|3.7|3.92
+378|leche de oveja|96.7|4.7|5.29|6.26
+379|leche materna calostro|53.1|4.87|2.55|2.6
+380|leche materna madura|68.4|7|1.15|4.03
+381|leche materna transicional|66.3|6.6|1.66|3.7
+382|yogur natural entero|61.4|5.5|3.96|2.6
+383|yogur entero natural azucarado|85.9|13.7|3.5|1.9
+384|yogur entero de sabores|114|15.6|5.36|3.4
+385|yogur entero con fruta|95|14.3|3.83|2.3
+386|yogur desnatado natural|44.88|6.3|4.25|0.32
+387|yogur desnatado natural azucar|75.9|13.8|4.5|0.3
+388|yogur desnatado de sabores|90.3|16.73|3.8|0.9
+389|yogur desnatado con fruta|71.7|13.1|3.83|0.2
+390|yogur griego|139|5.39|6.4|10.2
+391|yogur liquido natural azucarado|69.2|11.6|3|1.2
+392|yogur liquido de sabores|75.4|12.8|2.9|1.4
+393|yogur liquido con pulpa de fruta|81.9|14.3|2.8|1.5
+394|leche fermentada tipo bio natural|62.6|4.4|3.6|3.4
+395|leche fermentada tipo bio desnatado natural|44.3|5.5|4.9|0.3
+396|leche fermentada tipo bio con frutas|87.3|14|4|1.7
+397|leche fermentada tipo bio desnatado con frutas|44.6|6.4|4.7|0.02
+398|leche fermentada con lactobacillus casei|98.1|14.1|3|3.3
+399|leche fermentada con lactobacillus acidophilus|98.5|14.1|3.1|3.3
+400|queso azul|352.6|0|21.13|29.8
+401|queso brie|341.9|0.1|22.61|27.9
+402|maiz en grano hervido en lata|102.3|18.2|3.32|1.28
+403|salvado de trigo|273|21.72|15.55|4.25
+404|semola de trigo|351|69|12.68|1.05
+405|mijo|356|64.4|11.01|4.2
+406|cereales de desayuno con base de arroz|388|86|7|1.5
+407|cereales de desayuno con base de arroz y chocolate|388|85|5|2.5
+408|queso camembert|285.1|0.1|20.99|22.3
+409|queso cheddar|392.84|0.36|25.39|32.2
+410|queso de arzua|339|0|19.4|29
+411|queso de bola|329|0.8|25.52|24.9
+412|queso de burgos|200.1|2.5|14.04|14.9
+413|queso de cabra curado|467|0|27.6|39.6
+414|queso de cabra tierno|208|1.2|11.1|17.6
+415|queso de cabra semicurado|327|0.1|18.3|28.2
+416|queso de cabrales|392|0|21.5|34
+417|queso en lonchas|327|2.2|25.14|24.2
+418|queso emmental|369.8|0|28.96|31.2
+419|queso gallego|352|2|23|28
+420|queso en porciones|363|2.3|15.63|32.4
+421|queso en porciones descremado|162|6.5|10|10.7
+422|queso gorgonzola|360.88|0.62|19.4|31.2
+423|queso gouda|330.2|0|25.52|25.4
+424|queso gruyere|396.5|0|26.92|32.1
+425|queso idiazabal|443|0|23.3|38.9
+426|queso manchego curado|476|0.51|38.02|35.8
+427|queso manchego fresco|333|0|26|25.4
+428|queso manchego semicurado|391|0.5|28.77|30.4
+429|queso tipo manchego en aceite|471|0|26.5|40.5
+430|queso mozzarella|233|2.2|19.9|16.1
+431|queso parmesano|375|0.06|35.6|25.8
+432|queso tetilla|399|0|22|34.5
+433|queso torta del casar|399|0|26.3|32.6
+434|requeson|101.1|3.3|12.31|4.3
+435|queso tipo petit natural azucarado|120|13.7|7.3|4
+436|queso tipo petit de sabores|128|15.6|7.5|4
+437|queso roquefort|369.4|2|21.5|30.6
+438|arroz con leche|90.7|16.4|3.3|1.3
+439|copa de chocolate y nata|182|21.2|3.2|9.3
+440|crema de chocolate|198|20.9|3.6|10.7
+441|cuajada|86.7|6.6|4.5|4.7
+442|flan de huevo|143|20.4|5|4.6
+443|flan de vainilla|122|23.9|3|1.6
+444|helado cremoso|177|21|3.95|8.6
+445|mousse de chocolate|150|18.9|4|6.5
+446|natillas|103|15.48|3.7|2.9
+447|natillas de chocolate|129|18.9|4.2|4.1
+448|batido de cacao|84|9.8|2.7|3.6
+449|batido de fresa|66.6|11.2|2.8|1
+450|batido de vainilla|63.4|10.3|2.9|1
+451|nata liquida para cocinar|125|4.5|3.13|10.5
+452|nata liquida para montar|308|3.27|2.36|31.7
+453|nata montada|308|3.27|2.36|31.7
+454|solomillo de vaca|272|0|16.6|22.8
+455|carne de vaca magra|120|0|20.3|4.3
+456|carne semigrasa de vaca|160|0|19.1|9.3
+457|carne de vaca grasa|200|0|18.56|14
+458|carne de vaca 2ﾪy3ﾪ|234|0|22|16.2
+459|solomillo de buey|104|0|18.2|3.5
+460|solomillo de ternera|103|0|20.18|2.5
+461|lomo de ternera|120|0|16.62|6
+462|ternera magra|131|0|20.7|5.4
+463|ternera semigrasa|205|0|20.62|13.6
+464|chuleta de ternera|107|0|20.87|2.62
+465|ternera  de 2ﾪ y 3ﾪ|131|0|18.62|6.28
+466|solomillo añojo|102|0|15.06|4.6
+467|añojo lomo|256|0|15.43|21.6
+468|añojo de segunda y tercera|212|0|20.65|14.4
+469|solomillo de cerdo|158|0|22.3|7.6
+470|lomo de cerdo|311|0|16.25|26.6
+471|cerdo magro|156|0|22|7.6
+472|carne de cerdo semigrasa|219|0|17.5|16.5
+473|chuleta de cerdo|352|0|21.65|29.5
+474|costilla de cerdo|281|0|17.1|23.6
+475|bacon|682|0|14.6|69.3
+476|tocino|655|0|4.12|71
+477|panceta|471|0.5|12.5|46.6
+478|manita de cerdo|291|0.5|16|25
+479|chuleta de cordero|250|0|16.18|20.6
+480|paleta de cordero|151|0|11.13|11.8
+481|pierna de cordero|178|0|17.9|11.8
+482|pollo entero|166|0|19.9|9.6
+483|ala de pollo|217|0|18.33|15.97
+484|muslo de pollo|183|0|20.62|11.2
+485|pechuga de pollo|145|0|22.2|6.2
+486|gallina entera|232|0|17.3|18.1
+487|pavo|157|0|20.18|8.5
+488|muslo de pavo|114|0|20.5|3.61
+489|pechuga de pavo|105|0|24.12|0.99
+490|codorniz|110|0|22.37|2.32
+491|faisan entero|154|0|23.75|6.55
+492|pato entero|227|0|18.1|17.2
+493|solomillo de avestruz|113|0|21.67|2.95
+494|corazon de vaca|104|0|17|4
+495|higado de vaca|130|5.3|19.5|3.38
+496|lengua de vaca|219|3.7|14.9|16.09
+497|lengua de buey|224|3.7|16|16.09
+498|callos de ternera|134|0|14.81|8.3
+499|higado de ternera|136|4.2|19.37|4.6
+500|lengua de ternera|148|0|17.8|8.5
+501|riñon de ternera|131|0|16.68|7.1
+502|seso de ternera|109|0|10.12|7.6
+503|higado de cerdo|131|0.93|20.68|4.9
+504|lengua de cerdo|157|0|16|10.3
+505|riñon de cerdo|102|0|16.9|3.77
+506|sangre de cerdo|76|0.06|18.5|0.2
+507|seso de cerdo|123|0|10.6|9
+508|lengua de cordero|193|0|15.3|14.6
+509|molleja de cordero|131|0|15.3|7.8
+510|riñon de cordero|90.3|0|16.5|2.7
+511|seso de cordero|133|0|10|10.3
+512|higado de pollo|136|1.2|22.12|4.7
+513|butifarra|238|5.5|10|19.6
+514|cabeza de jabali|534|0.2|19.4|50.6
+515|chistorra|519|0.9|15.3|50.5
+516|chopped de cerdo|293|3.1|14.37|24.8
+517|chorizo|356|1.9|21.18|29.3
+518|foie gras|324|2.7|11.87|29.5
+519|jamon cocido|213.2|9.9|19.12|10.8
+520|jamon cocido enlatado|120|0|18.4|5.1
+521|jamon serrano|136|0|21.37|5.6
+522|jamon iberico|375|0.1|43.2|22.4
+523|lomo embuchado|308|0|32|20
+524|longaniza|348|0|25|27.5
+525|morcilla de arroz|256|16.7|6.87|17.7
+526|mortadela|266|1.3|11.87|23.7
+527|salami|444|1.72|21|39.2
+528|salchicha fresca|309|0.9|13.12|28.1
+529|salchicha tipo frankfurt|243|1.4|13.1|20.5
+530|salchichon|438|1.4|19.25|39.5
+531|sobrasada|595|0|13|60.3
+532|carne de caballo|108|0.4|20.62|2.7
+533|carne de jabali|162|0|19.5|9.3
+534|cabrito|122|0|19.2|5
+535|conejo|88.3|0|10.38|5.2
+536|liebre|114|0|21.62|3.01
+537|abadejo|73.9|0|16.68|0.8
+538|bacaladilla|84.4|0|17.5|1.6
+539|bacalao fresco|79.8|0|17.68|1.01
+540|breca|74.6|1|15.4|1
+541|cabracho|91.3|0|19|1.7
+542|dorada|230|1.3|18.12|16.9
+543|gallo|81.6|0|16.13|1.9
+544|lenguado|83.7|0.5|17.5|1.3
+545|lubina|97.9|0|19.3|2.3
+546|merluza|63.9|0|11.93|1.8
+547|mero|70.3|0|16|0.7
+548|mujol|123|0.8|20.38|4.3
+549|pescadilla|73.9|0|16.68|0.8
+550|platija|85.9|0|17.2|1.9
+551|rape|65.5|0|14.87|0.67
+552|raya|96.8|0.8|20.56|1.26
+553|rodaballo|82.3|0|16.68|1.73
+554|anguila|281|0|15|24.5
+555|angula|205|0|16.3|15.5
+556|arenque|233|0|18.18|17.8
+557|atun|226|0|21.5|15.5
+558|besugo|88.7|0|18.12|1.8
+559|boqueron|142|0.5|21.5|6
+560|bonito|153|0|24.7|6
+561|caballa|182|0|18.68|11.9
+562|carpa|114|0|18|4.7
+563|congrio|123|1.4|19|4.6
+564|jurel|117|0.8|19.75|3.85
+565|sargo|104|1|15|4.4
+566|pescaditos|79.8|1.8|11.4|3
+567|pez espada|117|0|19.35|4.4
+568|salmon|191|0|20.62|12.1
+569|salmonete|109|0|18.7|3.8
+570|sardina|157|0|18|9.4
+571|trucha|135|0|18.75|6.7
+572|palometa|125|0|20|5
+573|merluza congelada|81.2|0|15.8|2
+574|pescadilla congelada|54.6|0|11.8|0.82
+575|anchoa en aceite|253|0.37|28.62|15.2
+576|atun al natural|99.4|0|23.5|0.6
+577|atun en aceite|208|0|24.8|12.1
+578|atun en escabeche|99.4|0|23.5|0.6
+579|bonito en aceite|203|0|24.9|11.5
+580|bonito en aceite de soja|207|0|32.2|8.7
+581|caballa en aceite|217|0.6|22.5|13.8
+582|sardina con salsa de tomate|173|1.9|13.75|12.3
+583|sardina en aceite|218|0|23.93|13.6
+584|sardina en escabeche|131|0.8|15|7.5
+585|salmon ahumado|140|0|25.4|4.3
+586|almeja|76.6|1.5|15.4|1
+587|berberecho|82.6|1.5|16.9|1
+588|bogavante|83.5|0.7|15.9|1.9
+589|calamar|80.4|0.7|16.25|1.4
+590|cangrejo y similares|124|0|19.5|5.1
+591|centollo|127|0|20.1|5.2
+592|cigala|85.4|0.5|17.7|1.4
+593|quisquilla|81.8|1.5|17.6|0.6
+594|gamba roja|94.2|1.5|18|1.8
+595|langosta|83.9|1.3|17.2|1.1
+596|langostino|110|1.5|24.3|0.8
+597|mejillon|72|3.4|10.18|1.96
+598|ostra|66|4.8|9|1.2
+599|percebe|66.4|0|15.7|0.4
+600|pulpo|89.8|1.4|17.9|1.4
+601|sepia|75.3|0.7|16.1|0.9
+602|vieira|81.7|2.8|15.6|0.9
+603|bacalao salado|322|0|75|2.42
+604|almeja en conserva|79.3|1.5|17.43|0.4
+605|calamar en salsa americana|195|1.5|13.12|15.2
+606|mejillon en conserva al natural|82.1|2|12|2.9
+607|mejillon en escabeche|77.7|2|11.81|2.5
+608|anca de rana|68.3|0|16.4|0.3
+609|caracol|85.8|2|16.3|1.4
+610|carne de ballena|132|2.22|23.2|3.38
+611|caviar|252|1.9|26.1|15.5
+612|huevas frescas|119|1.5|24.3|1.8
+613|palito de cangrejo|82.9|6.1|12.6|0.9
+614|huevo de gallina|162|0.68|12.68|12.1
+615|yema de huevo|353|0.3|16.12|31.9
+616|clara de huevo|49.1|0.7|11.12|0.2
+617|huevo de codorniz|155|0.41|13.05|11.2
+618|huevo de pato|184|0.7|13|14.4
+619|azucar blanco|399|99.8|0|0
+620|azucar moreno|390|97.6|0|0
+621|miel|302|75.1|0.38|0
+622|cacao en polvo azucarado|391|81.02|5.88|4
+623|cacao en polvo bajo en calorias|358|63.36|16.1|3
+624|chocolate puro|509|47|5.3|30
+625|chocolate blanco|547|58.8|8|30.9
+626|chocolate con leche|538|54.1|9.19|31.5
+627|chocolate con leche y almendra|558|51.5|8.7|34.9
+628|chocolate en polvo a la taza|397|77.4|5.5|6
+629|crema de cacao y avellanas|548|56|6.2|33
+630|barrita de chocolate con galleta|501|63|6.5|24.5
+631|bombon|476|66|4.8|21.2
+632|mazapan|503|58.7|8|24.9
+633|turron de alicante|516|46|13|29.3
+634|turron de jijona|533|46|13.2|31.1
+635|milhoja con nata y crema|281|33|4.5|14.3
+636|pasta de te|446|73|6.9|13.8
+637|pastel de chocolate|443|41.8|5.2|27.9
+638|pastel relleno de crema|370|63.5|3.1|11.4
+639|tarta de crema pastelera y manzana|297|37.4|3.5|14.3
+640|tarta de frutas|393|57.9|5.1|14.8
+641|pudin de pasas|301|47.2|4.6|9.7
+642|caramelo|382|95|0.4|0
+643|chicle|390|96.7|0|0.3
+644|regaliz|323|71.5|3.9|1.9
+645|polo de hielo|134|29.5|1|1.3
+646|cacahuete con cascara|563|7.91|25.23|46
+647|almendra con cascara|610|5.36|18.71|54.1
+648|avellana con cascara|661|10.5|12.01|61.6
+649|nuez con cascara|649|4.4|14.42|62.5
+650|piñon con cascara|706|3.9|14|68.6
+651|mantequilla|897|0|0.25|99.5
+652|aceite de oliva virgen|899|0|0|99.9
+653|aceite de oliva|899|0|0|99.9
+654|aceite de girasol|899|0|0|99.9
+655|aceite de higado de bacalao|899|0|0|99.9
+656|aceite de maiz|899|0|0|99.9
+657|aceite de palma|899|0|0|99.9
+658|aceite de soja|900|0|0|99.99
+659|aceite de cacahuete|900|0|0|100
+660|col|30.2|4.18|1.38|0.2
+661|patata vieja|78.69|16.1|2.22|0.21
+662|aceite de coco|900|0|0|100
+663|margarina|722|0.4|0.2|80
+664|pan blanco sin sal|265|53.9|8|1.1
+665|pan blanco tipo baguette|258|50.6|9.65|1.1
+666|pan blanco tostado|262|46|6.84|4.4
+667|pan blanco tostado sin sal|279|49.1|9|4
+668|margarina ligera|368|0.4|1.62|40
+669|margarina salada|732|0.9|0.9|80.5
+670|margarina de maiz|727|0.9|0.9|80
+671|margarina con esteroles|396|3.2|0.1|42.5
+672|mantequilla salada|734|0.06|0.89|81.11
+673|manteca de cerdo|891|0|0|99
+674|arroz blanco de coccion rapida|349|78.2|6.9|0.6
+675|arroz integral|350|74.1|7.25|2.2
+676|avena|353|55.7|11.72|7.09
+677|fecula de maiz|356|88|0.41|0.08
+678|fortimel|100.1|10.3|10|2.1
+679|ensure fibra|105.4|16.2|3.75|2.5
+680|meritene fibra|115.7|11.8|7.8|3.7
+681|nutrison|103.2|11.3|4.3|4.2
+682|pentadrink|150|18|5|6.5
+683|promote|100|13|6.26|2.6
+684|meritene diabetico|92.8|13|7.8|1.04
+685|glucema sr|220|26|10.7|7.8
+686|germen de trigo|355|30.6|28.6|9.2
+687|harina de maiz|343|66.3|8.29|2.82
+688|cereales de desayuno con base de trigo y chocolate|388|81|8|2.5
+689|cereales de desayuno variados con miel|379|80.8|5.5|3
+690|pulmon de ternera|87.3|0|16.2|2.5
+691|borraja|25.7|3.06|1.8|0.7
+692|harina de trigo|341|70.6|9.86|1.2
+693|pulmon de cerdo|80.8|0|14.08|2.72
+694|pulmon de cordero|90.2|0|16.7|2.6
+695|arroz|364|81.6|6.67|0.9
+696|cereales de desayuno con base de avena integral tostada y miel|390|75.4|8.6|4.9
+697|cereales de desayuno variados integrales con miel|382|77|8|3.07
+698|cereales de desayuno con base de trigo y frutas|356|67|10|2.04
+699|cereales de desayuno salvado de trigo completo|326|45|13|4
+700|cereales de desayuno de trigo integral relleno de pasas|348|69|9|2
+701|harina integral de trigo|322|58.28|12.7|2.2
+702|rosada|70.5|0|16.5|0.5
+703|bizcocho de fruta y fibra|365|58|4.5|13
+704|berberecho en conserva|79.3|1.5|17.43|0.4
+705|calamar en su tinta|119|6.3|13.3|4.3
+706|navaja en conserva|89.2|0.05|20|1
+707|pan de perrito|271|47.5|7.54|4.7
+708|colines|262|46|6.84|4.4
+709|gulas salteadas en conserva|257|7.7|8.9|21.2
+710|sardinilla en aceite|218|0|23.93|13.6
+711|fuet|438|1.4|19.25|39.5
+712|aceituna rellena de pimiento|151|2.9|1.4|14.9
+713|aceituna rellena de anchoa|134|3.3|1.3|12.3
+714|pimiento rojo asado en conserva|32.2|5.2|1.19|0.4
+715|pimiento del piquillo en conserva|32.2|5.2|1.19|0.4
+716|tortita de arroz integral|373|77.5|8.6|3.2
+717|tortita de arroz hacendado|356|75|8.5|3.5
+718|cocido madrileño litoral|139|10.4|6.9|7.8
+719|cafe capuccino en polvo soluble|388|60.8|10.6|11.4
+720|gazpacho solfruit|84.2|3.9|1.4|7
+721|picatostes|438|67|11|14
+722|leche semidesnatada con calcio|53|5.8|3.94|1.6
+723|cereales de desayuno a base de trigo integral con avellanas y almendras|354|65|10|6
+724|barrita de fibra y chocolate|376|51|7|16
+725|cereales de desayuno con base de arroz y trigo integral|375|74|16|1
+726|cereales de desayuno con base de arroz, trigo integral, frutas rojas|368|74|14|1
+727|cereales de desayuno con base de avena|348|54.38|13.8|7.15
+728|muesli|395|61|9|11
+729|pan blanco|261|51.5|8.47|1.6
+730|bollo tipo donut de chocolate celiaco|173|30.32|1.05|15.5
+731|pechuga de pavo embutido|81.25|3.65|15.2|0.65
+732|semillas de sesamo|573|23.45|17.73|49.67
+733|cazon|82|0|18.7|0.9

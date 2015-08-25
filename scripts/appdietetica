@@ -1,0 +1,23 @@
+#!/bin/bash
+ 
+while getopts ":m:" opt; do
+  case $opt in
+    m) # METABOLISMO
+      echo "METABOLISMO"
+      metabolismoBasal=$( echo "scale=2; 370+(21.6*$2)" | bc -l )
+      echo "Metabolismo basal : "$metabolismoBasal " kcal"
+      metabolismoTotal=$( echo "scale=2; $metabolismoBasal*$3" | bc -l )
+      echo "Metabolismo total : "$metabolismoTotal " kcal"
+      exit 0
+    ;;
+    
+    \?)
+      echo "Invalid option: -$OPTARG"
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument."
+      exit 1
+      ;;
+  esac
+done

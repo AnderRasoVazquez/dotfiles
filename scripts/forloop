@@ -1,0 +1,40 @@
+for var in Canada USA Mexico
+do
+	printf "%s\n" "$var"
+done
+
+
+
+for (( n=1; n<=10; ++n ))
+do
+	echo "$n"
+done
+
+
+
+for n in a b c d e
+do
+	while true
+	do
+		if [ $RANDOM -gt 20000 ]
+		then
+			printf .
+			break 2 ## break out of both while and for loops
+		elif [ $RANDOM -lt 10000 ]
+		then
+			printf '"'
+			break ## break out of the while loop
+		fi
+	done
+done
+echo
+
+
+
+
+for n in {1..9} ## See Brace expansion in Chapter 4
+do
+	x=$RANDOM
+	[ $x -le 20000 ] && continue
+	echo "n=$n x=$x"
+done

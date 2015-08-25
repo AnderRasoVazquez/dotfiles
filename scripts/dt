@@ -1,0 +1,305 @@
+#!/bin/bash
+
+# sumar columnas
+# cat creador\ de\ dietas3.csv | awk -F"," '{ sum+=$4} END {print sum}'
+
+config_file="/home/$USER/.dtrc"
+source "$config_file"
+
+function is_debug_mode() {
+    if [[ "$debug_mode" = true ]]; then
+        echo "WARNING: debug mode is activated"
+    fi
+}
+
+function check_files() {
+    if [[ ! -d "$config_dir" ]]; then
+        mkdir -pv "$config_dir"
+    fi
+    if [[ ! -f "$db" ]]; then
+        echo "ERROR: food database not found. exiting..."
+        exit 1
+    fi
+    if [[ ! -f "$diets" ]]; then
+        echo "id|pacient|diet|day|hour|food|gr|cal|hc|pt|lp" >> "$diets"
+        echo "User database created..."
+    fi
+}
+
+function show_data() {
+    #fetch data individually
+    cat "$db" | grep "$delimiter$food$delimiter" | cut -d "$delimiter" -f $1
+    if [[ $(cat "$db" | grep "$delimiter$food$delimiter" | cut -d "$delimiter" -f $1 | wc -l) > 1 ]]; then
+        #statements
+        echo "ERROR: more than one match, check duplicate food names on the db"
+        exit 1
+    fi
+    # cat "$db" | grep "$food" | cut -d "|" -f $1
+}
+
+function fetch_db() {
+    #fetch_data
+    db_id=$(show_data "$db_id_col")
+    db_food=$(show_data "$db_food_col")
+    db_cal=$(show_data "$db_cal_col")
+    db_ch=$(show_data "$db_ch_col")
+    db_pt=$(show_data "$db_pt_col")
+    db_lp=$(show_data "$db_lp_col")
+
+    debug "## Function: fetch_db ##"
+    debug "db_id $db_id"
+    debug "db_food $db_food"
+    debug "db_cal $db_cal"
+    debug "db_ch $db_ch"
+    debug "db_pt $db_pt"
+    debug "db_lp $db_lp"
+}
+
+function rule_of_three () {
+    # desc
+    echo "scale=2; $1 * $2 / $3" | bc -l
+}
+
+function find_highest_id() {
+    #$1 db name
+    # debug "## find_highest_id ##"
+    highest_id=$(cat "$1" | tail -n +2 | sort -nt"$delimiter" -k1 | tail -n1 |cut -d "$delimiter" -f 1)
+    # debug "highest_id $highest_id"
+    echo "$highest_id"
+}
+
+function add_user_data() {
+    fetch_db
+    usr_id=$(($(find_highest_id $diets)+1))
+    usr_food="$db_food"
+    usr_gr="$1"
+    usr_cal=$(rule_of_three $usr_gr $db_cal 100)
+    usr_ch=$(rule_of_three $usr_gr $db_ch 100)
+    usr_pt=$(rule_of_three $usr_gr $db_pt 100)
+    usr_lp=$(rule_of_three $usr_gr $db_lp 100)
+    new_line_user=$(echo "$usr_id$delimiter$usr_pacient$delimiter$usr_diet$delimiter$usr_day$delimiter$usr_hour$delimiter$usr_food$delimiter$usr_gr$delimiter$usr_cal$delimiter$usr_ch$delimiter$usr_pt$delimiter$usr_lp")
+
+    # Añadir alimento a la dieta
+    echo "$new_line_user" >> "$diets"
+
+    debug "## Function: add_user_data ##"
+    debug "usr_id $usr_id"
+    debug "usr_pacient $usr_pacient"
+    debug "usr_diet $usr_diet"
+    debug "usr_day $usr_day"
+    debug "usr_hour $usr_hour"
+    debug "usr_food $usr_food"
+    debug "usr_gr $usr_gr"
+    debug "usr_cal $usr_cal"
+    debug "usr_ch $usr_ch"
+    debug "usr_pt $usr_pt"
+    debug "usr_lp $usr_lp"
+    debug "new_line_user $new_line_user"
+}
+
+
+function delete_by_id() {
+    # sed "/^"$delete_id"|/d" "$diets"
+    # $1 id $2 db
+    sed -i "/^"$1"|/d" "$2"
+}
+
+function debug() {
+    if [[ "$debug_mode" = true ]]; then
+        echo $1
+    fi
+}
+
+function show_day_plan() {
+    if [[ -n "$1" ]]; then
+        if [[ "$1" = "week" ]]; then
+            cat "$diets" | grep "$usr_diet"
+        else
+            cat "$diets" | grep "$usr_diet" | grep "$1" | sort -nt"$delimiter" -k5 | cut -d "$delimiter" -f "1-11"
+        fi
+    else
+        cat "$diets" | grep "$usr_diet" | grep "$usr_day" | sort -nt"$delimiter" -k5 | cut -d "$delimiter" -f "1-11"
+    fi
+}
+
+function macro_info() {
+    # TODO $8 etc are colums are hardcoder
+    # todo show_day_plan week impsement
+    cal=$(show_day_plan "$1" | awk -F"$delimiter" '{ sum+=$8} END {print sum}')
+    hc=$(show_day_plan "$1" | awk -F"$delimiter" '{ sum+=$9} END {print sum}')
+    pt=$(show_day_plan "$1" | awk -F"$delimiter" '{ sum+=$10} END {print sum}')
+    lp=$(show_day_plan "$1" | awk -F"$delimiter" '{ sum+=$11} END {print sum}')
+    macro_total=$(echo "scale=2; $hc + $pt + $lp" | bc -l)
+    perc_hc=$(rule_of_three "$hc" 100 "$macro_total" )
+    perc_pt=$(rule_of_three "$pt" 100 "$macro_total" )
+    perc_lp=$(rule_of_three "$lp" 100 "$macro_total" )
+    pt_gr_muscle=$(echo "scale=2; $pt/$usr_muscle" | bc -l)
+    # macro total gr -- 100%
+    # hc gr -- x
+    echo -e "kcal - $cal\n%HC - $perc_hc\n%PT - $perc_pt\n%LP - $perc_lp\nPT/muscle - $pt_gr_muscle gr"
+}
+
+function show_macro_info() {
+    if [[ -n "$1" ]]; then
+        # TODO tail on every cat of csv that way wiil be fewer errors
+        if [[ "$1" = "week" ]]; then
+            count_lines=$(cat "$diets" | tail -n +2 | wc -l)
+            if [[ "$count_lines" > 0 ]]; then
+                debug "There's at least a food entry"
+                macro_info "$1"
+            else
+                echo "For macro% data insert some foods"
+            fi
+        else
+            count_lines=$(cat "$diets" | grep "$1" | wc -l)
+            if [[ "$count_lines" > 0 ]]; then
+                debug "There's at least a food entry"
+                macro_info "$1"
+            else
+                echo "For macro% data insert some foods"
+            fi
+        fi
+    else
+        count_lines=$(cat "$diets" | grep "$usr_day" | wc -l)
+        if [[ "$count_lines" > 0 ]]; then
+            debug "There's at least a food entry"
+            macro_info
+        else
+            echo "For macro% data insert some foods"
+        fi
+    fi
+}
+
+function show_day_info() {
+    #function_body
+    echo "PACIENT: $usr_pacient"
+    echo "DIET: $usr_diet"
+    echo "DAY: $usr_day"
+    echo "HOUR: $usr_hour"
+}
+
+function new_line() {
+    #function_body
+    echo -e ""
+}
+
+# MAIN
+is_debug_mode
+check_files
+
+while getopts "dtraiwhm" opt; do
+    # TODO mirar lo de las :
+    case "$opt" in
+        # TODO paciente lista de pacientes y dietao
+        d)
+            PS3="Select day : "
+            select opt in "${week_days[@]}"; do
+                if [ "$opt" = "$quit_string" ]; then
+                    echo "Saliendo..."
+                    exit
+                else
+                    # edit config_file variable
+                    echo "Day changed to ${opt}"
+                    sed -i "s/^\(usr_day=\).*/\1\""$opt"\"/" "$config_file"
+                    exit
+                fi
+            done
+        ;;
+        t)
+            read -p " Select hour : " new_hour
+            sed -i "s/^\(usr_hour=\).*/\1\""$new_hour"\"/" "$config_file"
+        ;;
+        r)
+            if [[ -z "$2" ]]; then
+                #statements
+                show_day_plan
+                read -p "Delete id : " delete_id
+                delete_by_id "$delete_id" "$diets"
+                show_day_plan
+            else
+                delete_by_id "$2" "$diets"
+                show_day_plan
+            fi
+        ;;
+        a)
+            # food=$(echo "$1" | sed 's/-/ /g' )
+            food=$(echo "$2" | sed 's/-/ /g' )
+            debug $food $1 $2 $3
+            if [[ -n "$3" ]]; then
+                #statements
+                gr="$3"
+                add_user_data "$gr"
+                show_day_plan
+            else
+                echo "ERROR: no cuantity given, try \"dt -a food 100\""
+            fi
+        ;;
+        i)
+            PS3="Select day info : "
+            select opt in "${week_days[@]}"; do
+                if [ "$opt" = "$quit_string" ]; then
+                    echo "Saliendo..."
+                    exit
+                else
+                    show_macro_info "$opt"
+                    new_line
+                    show_day_plan "$opt"
+                    exit
+                fi
+            done
+        ;;
+        w)
+            echo "Week info:"
+            show_macro_info "week"
+        ;;
+        h)
+            echo "{### HELP ###}"
+            echo "ADD FOOD: dt -a food gr"
+            echo "SHOW DAY INFO: dt -i"
+            echo "SHOW WEEK INFO: dt -w"
+            echo "CHANGE MEAL TIME: dt -t 08:00"
+            echo "CHANGE MEAL DAY: dt -d"
+            echo "DELETE FOOD ENTRY: dt -r {id}"
+            echo "CALCULATE METABOLISM: dt -m {muscle mass} {activity}"
+        ;;
+        m)
+            # Calcular metabolismo basal
+            # TODO multilenguaje
+            if [[ -n "$2" ]]; then
+                masa_muscular=$2
+                else
+                read -p "Masa muscular (kg) : " masa_muscular
+                fi
+            metabolismoBasal=$( echo "scale=2; 370+(21.6*$masa_muscular)" | bc -l )
+
+            # Calcular metabolismo total
+            # TODO is a number?
+            if [[ -n "$3" ]]; then
+                nivel_actividad=$3
+            else
+                read -p "Nivel de actividad : " nivel_actividad
+            fi
+            metabolismoTotal=$( echo "scale=2; $metabolismoBasal*$nivel_actividad" | bc -l )
+
+            #Mostrar resultados
+            echo -e "┌METABOLISMO [$masa_muscular kg] [$nivel_actividad actividad]"
+            echo -e "├─Metabolismo basal → "$metabolismoBasal" kcal"
+            echo -e "└─Metabolismo total → "$metabolismoTotal" kcal"
+            exit 0
+        ;;
+        \?)
+            echo "Invalid option: -$OPTARG"
+            exit 1
+        ;;
+    esac
+done
+
+if [[ "$#" = 0 ]]; then
+    show_day_info
+    new_line
+    show_macro_info
+    new_line
+    show_day_plan
+fi
+
+exit 0

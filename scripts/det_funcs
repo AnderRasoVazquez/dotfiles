@@ -1,0 +1,285 @@
+#!/bin/bash
+
+#COLORS by Helmuthdu - https://github.com/helmuthdu/dotfiles/blob/master/.bashrc
+#echo -e "${G}Hello Arch${W}"
+
+B='\e[1;38;5;33m'
+LB='\e[1;38;5;81m'
+GY='\e[1;38;5;242m'
+G='\e[1;38;5;82m'
+P='\e[1;38;5;161m'
+PP='\e[1;38;5;93m'
+R='\e[1;38;5;196m'
+Y='\e[1;38;5;214m'
+W='\e[0m' # Quitar color
+
+debug=true
+
+database_path="/home/$USER/det/data/det.db"
+conexion="sqlite3 $database_path"
+
+new_line(){
+  echo -e "\r"
+}
+
+crear_usuario(){
+
+  clear
+  echo "CREAR USUARIO"
+  
+  # crear usuario y comprobar si existe
+  while true
+  do
+    read -p "Usuario : " usuario
+    [ -z "$usuario" ] && continue
+    # comprobar si existe ese usuario
+    existe_usuario=$($conexion "SELECT count(*) FROM usuarios where usuario='$usuario'";)
+    if [[ "$existe_usuario" = 1 ]]
+    then
+      echo "Parece que ese nombre de usuario ya existe, elige otro."
+      continue
+    fi
+    break
+  done
+
+  # comprobar si la contraseña es igual
+  while true
+  do
+    read -p "Contraseña : " -s contrasena1
+    new_line
+    [ -z "$contrasena1" ] && continue
+    read -p "Contraseña (de nuevo) : " -s contrasena2
+    new_line
+
+    if [ "$contrasena1" = "$contrasena2" ]
+    then
+      #contraseñas iguales, salimos del loop
+      break
+    else
+      echo "La contraseña introducida no coincide con la anterior."
+      new_line
+    fi
+  done
+
+  $conexion  "INSERT INTO usuarios values ('$usuario','$contrasena1')"
+
+  #$conexion -column -header "select * from usuarios"
+}
+
+dame_usuario_actual(){
+  usuario_actual=$($conexion "select usuario from usuario_actual")
+}
+
+# LOGIN
+login(){
+  
+  echo "LOGIN"
+  new_line
+  # Usuario
+  while true
+  do
+    read -p "Usuario : " usuario
+    [ -z "$usuario" ] && continue
+    break
+  done
+
+  # Contraseña
+  while true
+  do
+    read -p "Contraseña : " -s contrasena
+    new_line
+    [ -z "$contrasena" ] && continue
+    break
+  done
+
+  existe_usuario=$($conexion "SELECT count(*) FROM usuarios where usuario='$usuario' and contrasena='$contrasena'";)
+  
+  #Si existe ese usuario le asignamos el 1
+  if [[ "$existe_usuario" = 1 ]]
+  then
+    echo "Bienvenido, "$usuario
+
+    existe_sesion=$($conexion "SELECT count(*) FROM var_sesion where sesion_usuario='$usuario';")
+
+    if [[ "$existe_sesion" = 0 ]]; then #si nunca ha iniciado sesion
+      $conexion  "INSERT INTO var_sesion values ('$usuario','$contrasena',NULL,NULL,NULL,NULL)"
+    fi # existe sesion?
+
+    existe_sesion=$($conexion "SELECT count(*) FROM usuario_actual;")
+    if [[ "$existe_sesion" = 0 ]]
+    then
+      $conexion "INSERT INTO usuario_actual values ('$usuario')"
+    else
+      usuario_anterior=$($conexion "SELECT usuario FROM usuario_actual;")
+      $conexion "UPDATE usuario_actual SET usuario='$usuario' where usuario='$usuario_anterior';"
+    fi
+  # Que usuario soy ahora
+  else
+    echo "Usuario incorrecto."
+  fi # existe usuario?
+}
+
+
+# INSTALACION DEL PROGRAMA
+esta_instalado(){
+
+# creacion de la base de datos
+if [[ ! -f $database_path ]]; then
+  echo "Database does not exist, creating Database..."
+  $conexion <<EOF
+    CREATE TABLE midieta
+    (
+      id int,
+      usuario varchar(40),
+      contrasena varchar(40),
+      dieta varchar(100),
+      dia varchar(20),
+      hora varchar(20),
+      alimento varchar(100),
+      gramos int,
+      calorias int,
+      carbohidratos int,
+      lipidos int,
+      proteinas int,
+      PRIMARY KEY (id)
+    );
+
+    CREATE TABLE nom_dietas
+    (
+      usuario varchar(40),
+      dieta varchar(100),
+      calorias int,
+      nombre_paciente varchar(40)
+      --HACER ESTO CUANDO ESTE CREADA LA GESTION DE PACIENTES
+      --apellido_paciente varchar(40),
+      --correo_paciente varchar(40),
+      --tlf_paciente int,
+    );
+
+    CREATE TABLE tabla_alimentos
+    (
+      alimento varchar(200),
+      calorias int,
+      carbohidratos int,
+      lipidos int,
+      proteinas int
+    );
+
+    CREATE TABLE usuarios
+    (
+      usuario varchar(40) NOT NULL,
+      contrasena varchar(40) NOT NULL
+    );
+
+    CREATE TABLE pacientes
+    (
+      -- fecha de nacimiento para que haga los calculos
+      nombre varchar(40),
+      apellidos varchar(40),
+      sexo varchar(40),
+      edad int,
+      altura int,
+      tlf int,
+      correo varchar(40) ,
+      dieta_asignada varchar(40) 
+    );
+
+    CREATE TABLE progresos_pacientes
+    (
+      -- id int,
+      fecha varchar(20),
+      nombre varchar(40),
+      apellidos varchar(40),
+      tlf int,
+      correo varchar(40),
+      edad int,
+      altura int, -- si es mayor que 21 años no cambiar
+      peso_total int,
+      comp_graso int,
+      comp_muscular int,
+      cintura int,
+      cadera int,
+      icc,
+      -- PRIMARY KEY (id)
+    );
+
+    CREATE TABLE usuario_actual
+    (
+      -- es necesario si tenemos var_sesion? creo q no
+      usuario varchar(40)
+    );
+
+    CREATE TABLE var_sesion
+    (
+      sesion_usuario varchar(40),
+      -- Es necesario?? contraseña??
+      -- Dia para q se vea en el output
+      sesion_contrasena varchar(40),
+      sesion_dieta varchar(40),
+      sesion_calorias int,
+      sesion_paciente varchar(40),
+      sesion_evolucion varchar(40)
+    );
+EOF
+
+  # importar tabla de alimentos
+  $conexion ".import tabla_alimentos_reducida.csv tabla_alimentos"
+
+  echo "Database created! =)"
+  new_line
+fi # creacion base de datos
+
+# Ahora que se ha instalado la base de datos vamos a crear el primer usuario si no hay
+hay_usuarios=$($conexion "SELECT count(*) FROM usuarios";)
+if [[ "$hay_usuarios" = 0 ]]
+then
+  echo "No hay usuarios, se le pedirá que cree el primero."
+  crear_usuario
+  login
+fi
+}
+
+
+
+
+#Gestionar dietas
+
+
+
+
+# MENU PRINCIPAL
+menu_principal(){
+  while true
+  do
+    clear
+    echo "MENU PRINCIPAL"
+    new_line
+    echo "1) Crear usuario"
+    echo "2) Gestionar dietas"
+    echo "3) Cambiar usuario"
+    new_line
+    echo "q) Salir"
+    new_line
+
+    read -p "Elige (1-2) : " menu_opt
+    case $menu_opt in
+      1)
+        echo 'Crear usuario.'
+        crear_usuario
+        ;;
+      2)
+        echo "Gestionar dietas."
+        ;;
+      3)
+        echo "Cambiar usuario."
+        login
+        ;;
+      q)
+        break
+        ;;
+      *)
+        echo 'Opción no válida.'
+        ;;
+    esac
+  done
+} # menu principal

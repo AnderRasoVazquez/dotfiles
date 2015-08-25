@@ -1,0 +1,4 @@
+[settings]
+file = ~/todo.txt
+archive = ~/done.txt
+colorscheme = myawesometheme

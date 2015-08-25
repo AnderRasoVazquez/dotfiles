@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# a simple dmenu session script 
+#
+###
+
+DMENU="dmenu -p custom$ -i -nb #000000 -nf #FFFFFF -sb #848484 -sf #000000"
+choice=$(echo -e "\
+logout\n\
+shutdown\n\
+reboot\n\
+suspend\n\
+ander\n\
+Cerrar sesión\
+" | $DMENU)
+
+case "$choice" in
+  logout) i3-msg exit & ;;
+  shutdown) sudo shutdown -h now & ;;
+  reboot) sudo shutdown -r now & ;;
+  suspend) sudo pm-suspend & ;;
+  hibernate) sudo pm-hibernate & ;;
+  ander)
+choices=$(echo -e "\
+logouta\n\
+shutdowan\n\
+reboota\n\
+suspenda\n\
+andera\n\
+hibernatea\
+" | $DMENU)
+esac

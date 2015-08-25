@@ -1,0 +1,17 @@
+# read name
+# if [[ -z "$name" ]]; then
+# 	echo "No name entered" >&2
+# 	exit 1 ## Set a failed return code
+# fi
+
+printf "Enter a number between 10 and 20: "
+read number
+if [ "$number" -lt 10 ]; then
+	printf "%d is too low\n" "$number" >&2
+	exit 1
+elif [ "$number" -gt 20 ]; then
+	printf "%d is too high\n" "$number" >&2
+	exit 1
+else
+	printf "You entered %d\n" "$number"
+fi
